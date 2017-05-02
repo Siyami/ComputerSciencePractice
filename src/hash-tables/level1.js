@@ -6,7 +6,7 @@ Will Smith is back in the music game and his PR team is telling him he should  i
 hit, 'Miami', multi-lingual. Below is a list of languages his team want him to include. Will is a busy
 guy so he has asked you to help him out.
 
-Create a funtion named greet()
+Create a function named greet()
 It takes a single argument 'language'
 It will return 'Welcome to Miami.' where 'Welcome' will be in the language specified.
 
@@ -30,7 +30,13 @@ const LANG_LIST = {
 };
 
 const greet = (language) => {
-
+  const lowerCaseLanguage = language.toLowerCase();
+  if(LANG_LIST.hasOwnProperty(lowerCaseLanguage)) {
+    return `${LANG_LIST[lowerCaseLanguage]} a Miami.`;
+  }
+  else {
+    return 'Welcome a Miami.';
+  }
 };
 
 /*
