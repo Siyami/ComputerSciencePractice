@@ -51,7 +51,13 @@ i.e. [1, 'z', 'bob', true, 42, 'bob'] => { '1': 0, 'z': 1, 'bob': '5', 'true': 3
 */
 
 const removeDupes = (numArr) => {
-
+    const resultObj = {};
+    let counter = 0;
+    for(const e of numArr) {
+      resultObj[e] = counter;
+      counter++;
+    }
+    return resultObj;
 };
 
 /*
@@ -65,7 +71,13 @@ i.e. { 'foo': 6, 'bar': 3, 'baz': 'bob', 13: 13 } => { 'bar': 3, '13': 13 }
 */
 
 const onlyOdds = (mixedHash) => {
-
+  const resultObj = {};
+  for(const e in mixedHash) {
+    if(mixedHash[e] % 2 === 1) {
+      resultObj[e] = mixedHash[e];
+    }
+  }
+  return resultObj;
 };
 
 /*
@@ -79,7 +91,17 @@ i.e. 'hello' => { h: 1, e: 1, l: 2, o: 1 }
 */
 
 const charCount = (word) => {
-
+  let lowerCaseWord = word.toLowerCase();
+  const resultObj = {};
+  for(const char of lowerCaseWord) {
+    if(resultObj.hasOwnProperty(char)) {
+      resultObj[char] += 1;
+    }
+    else {
+      resultObj[char] = 1;
+    }
+  }
+  return resultObj;
 };
 
 module.exports = { greet, removeDupes, onlyOdds, charCount };
